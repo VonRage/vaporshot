@@ -14,13 +14,6 @@ func spawn_bullet(pos: Vector2, dir: Vector2, faction: String = "player", speed 
 	b.lifetime = lifetime
 	b.faction = faction
 
-	# Test: adjust bullet appearance or speed by shooter
-	match faction:
-		"player":
-			b.modulate = Color(0,1,1)
-		"enemy":
-			b.modulate = Color(1,0.2,0.2)
-
 	return b
 
 

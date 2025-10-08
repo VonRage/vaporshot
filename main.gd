@@ -1,6 +1,8 @@
 extends Node2D
 
-
+export var bg_scene : PackedScene
+onready var bg : Node2D = null
+var level_scene = preload("res://environment/level.tscn")
 export var player_scene : PackedScene
 onready var player : KinematicBody2D = null
 onready var player_spawn_point : Position2D = $PlayerSpawnPosition
@@ -8,16 +10,29 @@ export var enemy_scene : PackedScene
 onready var enemy : KinematicBody2D = null
 onready var enemy_spawn_point : Position2D = $EnemySpawnPosition
 
-# Game modes
-enum Mode { SHIP, PILOT, BOSS }
-
-var mode = Mode.SHIP
-
 
 func _ready():
-	print("Game started. Mode:", mode)
+	spawn_background()
+	spawn_level()
 	spawn_player()
 	spawn_enemy()
+
+
+func spawn_background():
+	if bg:
+		bg.queue_free()
+	bg = bg_scene.instance()
+	$EnvironmentBase.add_child(bg)
+
+
+func spawn_level():
+	var level
+
+	if !level_scene:
+		printerr("No level is loaded!")
+		return 1
+	level = level_scene.instance()
+	$LevelBase.add_child(level)
 
 
 func spawn_player():
@@ -35,15 +50,3 @@ func spawn_enemy():
 	$EnemiesBase.add_child(enemy)
 	enemy.global_position = enemy_spawn_point.global_position
 
-
-# --- Stubs for later ---
-func enter_ship_mode():
-	pass   # will handle ship spawn later
-
-
-func enter_pilot_mode():
-	pass   # will handle eject/pilot spawn later
-
-
-func enter_boss_mode():
-	pass   # will handle boss spawn later

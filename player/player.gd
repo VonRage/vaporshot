@@ -12,7 +12,7 @@ var velocity : Vector2 = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 func _physics_process(delta):
@@ -34,9 +34,11 @@ func _process(delta):
 		BulletManager.spawn_bullet(bullet_spawn.global_position, right, "player")
 		time_since_shot = 0.0
 
-# Shooting
-func _fire():
-	var b = bullet_scene.instance()
-	get_parent().add_child(b)  # or a dedicated Bullets node; avoid adding to self if you plan to free/move the player
-	b.global_position = bullet_spawn.global_position
-	# set bullet direction/speed on b here
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("enemy") or body.is_in_group("tiles"):
+		take_damage()
+
+
+func take_damage():
+	queue_free()
