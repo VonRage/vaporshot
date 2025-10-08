@@ -16,6 +16,7 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 5 )
 rotation = 1.57079
+scale = Vector2( 1, 0.997222 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -30,3 +31,7 @@ shape = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1.90735e-06, -2.38419e-07 )
+scale = Vector2( 3.2, 1.6 )
