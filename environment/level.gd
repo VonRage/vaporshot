@@ -2,7 +2,7 @@ extends TileMap
 
 
 # Declare member variables here. Examples:
-var speed := -10
+var speed := -1000
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,4 +12,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.x += speed
+	position.x += speed * delta
