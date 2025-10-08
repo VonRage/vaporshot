@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
+
 export var speed = 200
 var player : KinematicBody2D = null
 export var bullet_speed = 500
+export var points : int = 500
 
 func _ready():
 	player = get_tree().get_nodes_in_group("player")[0] if get_tree().get_nodes_in_group("player").size() > 0 else null
@@ -31,5 +33,7 @@ func shoot_ring(num_bullets = 10):
 
 
 func take_damage():
+	GameStateManager.set_score(points)
+	print("Has to be here already")
 	call_deferred("shoot_ring")
 	queue_free()

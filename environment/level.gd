@@ -2,7 +2,7 @@ extends TileMap
 
 
 # Declare member variables here. Examples:
-var speed := -1000
+var speed := -500
 
 
 # Called when the node enters the scene tree for the first time.

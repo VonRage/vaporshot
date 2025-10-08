@@ -22,7 +22,7 @@ z_index = -1
 
 [node name="BulletManagerBase" type="Node2D" parent="."]
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUDBase" type="CanvasLayer" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
