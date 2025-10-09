@@ -2,7 +2,7 @@
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://enemies/kamikaze_enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/basic_enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environment/background.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
