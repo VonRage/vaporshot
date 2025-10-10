@@ -23,7 +23,8 @@ func _physics_process(delta):
 	)
 	if v.length() > 0:
 		v = v.normalized()
-	position += v * speed * delta
+#	position +=
+	move_and_slide(v * speed, Vector2.UP)
 
 
 func _process(delta):
@@ -41,4 +42,4 @@ func _on_Area2D_body_entered(body):
 
 
 func take_damage():
-	queue_free()
+	get_tree().reload_current_scene()

@@ -7,11 +7,12 @@ var state = IDLE
 var charge_time := 0.6
 var fire_time := 1.2
 var _timer := 0.0
+var should_start_laser: bool = false
 
 func _physics_process(delta):
 	match state:
 		IDLE:
-			if should_start_laser():   # your condition
+			if should_start_laser:   # your condition
 				start_charge()
 		CHARGING:
 			_timer -= delta

@@ -12,7 +12,6 @@ func _ready():
 	player = get_tree().get_nodes_in_group("player")[0] if get_tree().get_nodes_in_group("player").size() > 0 else null
 
 func _physics_process(delta):
-	self.position.x += -100 * delta
 	shoot_timer += delta
 	if shoot_timer >= shoot_interval and player:
 		print("Shooting!")  # Add this
