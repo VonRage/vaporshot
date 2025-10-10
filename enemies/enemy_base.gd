@@ -13,7 +13,7 @@ var player : KinematicBody2D = null
 export var bullet_speed = 500
 
 # Special behaviors
-export var kamikaze : bool = false
+export var kamikaze_type : bool = false
 
 # Scoring
 export var points : int = 500
@@ -103,7 +103,7 @@ func _shoot_spread(num_bullets = 5, cone_angle = 45):
 	var cone_angle_rad = deg2rad(cone_angle)
 
 	for i in range(num_bullets):
-		# Spread bullets evenly across the cone angle
+		# Spread bullets evenly across the circle
 		var t = i / float(num_bullets - 1) if num_bullets > 1 else 0.5
 		var offset_angle = (t - 0.5) * cone_angle_rad  # -cone/2 to +cone/2
 
@@ -147,7 +147,7 @@ func _get_player():
 func take_damage():
 	GameStateManager.set_score(points)
 
-	if kamikaze:
-		_shoot_ring()
+	if kamikaze_type:
+		call_deferred(_shoot_ring())
 
 	queue_free()
