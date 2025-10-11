@@ -5,6 +5,9 @@ onready var bullet : Area2D = null
 onready var bullet_spawn : Position2D = $BulletSpawnPoint
 export var fire_cooldown := 0.20
 var time_since_shot := 0.0
+onready var health: int = 3
+const I_FRAMES: float = 2.0
+export var i_frames: float = 2.0
 
 export var speed : float = 750
 var velocity : Vector2 = Vector2.ZERO
@@ -34,6 +37,7 @@ func _process(delta):
 	if Input.is_action_pressed("shoot") and time_since_shot >= fire_cooldown:
 		BulletManager.spawn_bullet(bullet_spawn.global_position, right, "player")
 		time_since_shot = 0.0
+	i_frames += delta
 
 
 func _on_Area2D_body_entered(body):
@@ -42,4 +46,14 @@ func _on_Area2D_body_entered(body):
 
 
 func take_damage():
-	get_tree().reload_current_scene()
+	if i_frames >= I_FRAMES:
+		if health > 1:
+			health -= 1
+			GameStateManager.health_changed(health)
+			i_frames = 0
+		elif health <= 0:
+			health -= 1
+			GameStateManager.health_changed(health)
+			get_tree().reload_current_scene()
+		else:
+			printerr("Error with take_damage on player")

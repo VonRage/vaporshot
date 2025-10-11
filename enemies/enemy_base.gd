@@ -46,8 +46,11 @@ func _move_toward_player(delta):
 		printerr("Error calling _move_toward_player")
 
 
-func _stationary_movement(delta):
-	self.position.x += stationary_speed * delta
+func _move_toward_player_and_leave(delta):
+	if player.global_position.x <= self.global_position.x:
+		_move_toward_player(delta)
+	else:
+		_move_left_right(delta)
 
 
 # Shot pattern functions
@@ -84,7 +87,7 @@ func _shoot_aimed():
 		printerr("Error calling _shoot_aimed")
 
 
-func _shoot_ring(num_bullets = 8, ring_radius = 50, shoot_dir : Vector2 = Vector2(-1, 0)):
+func _shoot_ring(num_bullets: int = 8, ring_radius: float = 50, shoot_dir : Vector2 = Vector2(-1, 0)):
 	for i in range(num_bullets):
 		var angle = (i / float(num_bullets)) * TAU
 		var offset = Vector2(cos(angle), sin(angle)) * ring_radius
@@ -92,6 +95,23 @@ func _shoot_ring(num_bullets = 8, ring_radius = 50, shoot_dir : Vector2 = Vector
 		BulletManager.spawn_bullet(
 			global_position + offset,
 			shoot_dir,
+			"enemy",
+			bullet_speed,
+			5.0
+		)
+
+
+func _shoot_expand(num_bullets = 8, ring_radius = 50):
+	for i in range(num_bullets):
+		var angle = (i / float(num_bullets)) * TAU
+		var direction = Vector2(cos(angle), sin(angle))
+
+		# Spawn at offset position around enemy
+		var spawn_pos = global_position + (direction * ring_radius)
+
+		BulletManager.spawn_bullet(
+			spawn_pos,        # spawns in circle around enemy
+			direction,        # moves outward from center
 			"enemy",
 			bullet_speed,
 			5.0
@@ -148,6 +168,6 @@ func take_damage():
 	GameStateManager.set_score(points)
 
 	if kamikaze_type:
-		call_deferred(_shoot_ring())
+		_shoot_expand()
 
 	queue_free()
