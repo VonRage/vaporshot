@@ -9,13 +9,91 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Appender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appender.gd"
+}, {
+"base": "Appender",
+"class": "ConsoleAppender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appenders/console_appender.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "EnemyBase",
 "language": "GDScript",
 "path": "res://enemies/enemy_base.gd"
+}, {
+"base": "Appender",
+"class": "FileAppender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appenders/file_appender.gd"
+}, {
+"base": "Layout",
+"class": "HtmlLayout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layouts/html_layout.gd"
+}, {
+"base": "Reference",
+"class": "Layout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layout.gd"
+}, {
+"base": "Reference",
+"class": "Message",
+"language": "GDScript",
+"path": "res://addons/gs_logger/message.gd"
+}, {
+"base": "Resource",
+"class": "PCamAddon",
+"language": "GDScript",
+"path": "res://addons/ProCam2D/scripts/core/nds/a.gd"
+}, {
+"base": "PCamAddon",
+"class": "PCamGrids",
+"language": "GDScript",
+"path": "res://addons/ProCam2D/scripts/core/addns/pcam_grids.gd"
+}, {
+"base": "PCamAddon",
+"class": "PCamMouseFollow",
+"language": "GDScript",
+"path": "res://addons/ProCam2D/scripts/core/addns/pcam_mouse_influence.gd"
+}, {
+"base": "PCamAddon",
+"class": "PCamShake",
+"language": "GDScript",
+"path": "res://addons/ProCam2D/scripts/core/addns/pcam_shake.gd"
+}, {
+"base": "Object",
+"class": "PCamUtils",
+"language": "GDScript",
+"path": "res://addons/ProCam2D/scripts/core/nds/u.gd"
+}, {
+"base": "Layout",
+"class": "PatternLayout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layouts/pattern_layout.gd"
+}, {
+"base": "Reference",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://addons/gs_logger/utils.gd"
 } ]
 _global_script_class_icons={
-"EnemyBase": ""
+"Appender": "",
+"ConsoleAppender": "",
+"EnemyBase": "",
+"FileAppender": "",
+"HtmlLayout": "",
+"Layout": "",
+"Message": "",
+"PCamAddon": "",
+"PCamGrids": "",
+"PCamMouseFollow": "",
+"PCamShake": "",
+"PCamUtils": "",
+"PatternLayout": "",
+"Utils": ""
 }
 
 [application]
@@ -29,6 +107,7 @@ config/icon="res://icon.png"
 
 BulletManager="*res://bullet_manager/bullet_manager.gd"
 GameStateManager="*res://resources/game_state.gd"
+procam="*res://addons/ProCam2D/scripts/autoload.gd"
 
 [display]
 
@@ -39,7 +118,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg", "res://addons/ProCam2D/plugin.cfg", "res://addons/time-tracker/plugin.cfg" )
 
 [gui]
 

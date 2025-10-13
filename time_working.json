@@ -1,0 +1,16 @@
+[
+  {
+    "session_name": "Session #1",
+    "elapsed_time": 11227,
+    "started_at": 1760326985,
+    "stopped_at": 1760338212,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 11227,
+        "started_at": 1760326985,
+        "stopped_at": 1760338212
+      }
+    ]
+  }
+]

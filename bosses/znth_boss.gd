@@ -3,7 +3,7 @@ extends EnemyBase
 onready var laser_pivot := $LaserPivot
 var laser = null
 enum { IDLE, CHARGING, FIRING, COOLDOWN }
-var state = IDLE
+var state: int = IDLE
 var charge_time := 0.6
 var fire_time := 1.2
 var _timer := 0.0

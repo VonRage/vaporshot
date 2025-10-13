@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var player : Node2D = $Autoscroll
-onready var path : PathFollow2D = $Path2D/PathFollow2D
+
+onready var path: Node2D = $AutoscrollPath/PathFollow2D
 export var speed: float = 100
 
 
@@ -10,6 +10,5 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _process(delta):
+func _physics_process(delta):
 	path.offset += speed * delta
-	player.position = path.position

@@ -18,7 +18,7 @@ func _ready():
 	pass
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Movement
 	var v := Vector2(
 		int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left")),
@@ -26,7 +26,7 @@ func _physics_process(delta):
 	)
 	if v.length() > 0:
 		v = v.normalized()
-#	position +=
+		
 	move_and_slide(v * speed, Vector2.UP)
 
 
