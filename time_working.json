@@ -12,5 +12,37 @@
         "stopped_at": 1760338212
       }
     ]
+  },
+  {
+    "session_name": "Session #2",
+    "elapsed_time": 10990,
+    "started_at": 1760342280,
+    "stopped_at": 1760353270,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 3214,
+        "started_at": 1760342280,
+        "stopped_at": 1760345494
+      },
+      {
+        "view": "_paused",
+        "elapsed_time": 3669,
+        "started_at": 1760345494,
+        "stopped_at": 1760349163
+      },
+      {
+        "view": "AssetLib",
+        "elapsed_time": 3979,
+        "started_at": 1760349163,
+        "stopped_at": 1760353142
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 128,
+        "started_at": 1760353142,
+        "stopped_at": 1760353270
+      }
+    ]
   }
 ]

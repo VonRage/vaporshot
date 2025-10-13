@@ -12,5 +12,149 @@
         "stopped_at": 1760338212
       }
     ]
+  },
+  {
+    "session_name": "Session #2",
+    "elapsed_time": 10990,
+    "started_at": 1760342280,
+    "stopped_at": 1760353270,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 3214,
+        "started_at": 1760342280,
+        "stopped_at": 1760345494
+      },
+      {
+        "view": "_paused",
+        "elapsed_time": 3669,
+        "started_at": 1760345494,
+        "stopped_at": 1760349163
+      },
+      {
+        "view": "AssetLib",
+        "elapsed_time": 3979,
+        "started_at": 1760349163,
+        "stopped_at": 1760353142
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 128,
+        "started_at": 1760353142,
+        "stopped_at": 1760353270
+      }
+    ]
+  },
+  {
+    "session_name": "Fixing Player Damage",
+    "elapsed_time": 1953,
+    "started_at": 1760366143,
+    "stopped_at": 1760368096,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 1211,
+        "started_at": 1760366143,
+        "stopped_at": 1760367354
+      },
+      {
+        "view": "Stickies",
+        "elapsed_time": 65,
+        "started_at": 1760367354,
+        "stopped_at": 1760367419
+      },
+      {
+        "view": "AssetLib",
+        "elapsed_time": 0,
+        "started_at": 1760367419,
+        "stopped_at": 1760367419
+      },
+      {
+        "view": "Stickies",
+        "elapsed_time": 6,
+        "started_at": 1760367419,
+        "stopped_at": 1760367425
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 103,
+        "started_at": 1760367425,
+        "stopped_at": 1760367528
+      },
+      {
+        "view": "Stickies",
+        "elapsed_time": 134,
+        "started_at": 1760367528,
+        "stopped_at": 1760367662
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 10,
+        "started_at": 1760367662,
+        "stopped_at": 1760367672
+      },
+      {
+        "view": "AssetLib",
+        "elapsed_time": 35,
+        "started_at": 1760367672,
+        "stopped_at": 1760367707
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 57,
+        "started_at": 1760367707,
+        "stopped_at": 1760367764
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 48,
+        "started_at": 1760367764,
+        "stopped_at": 1760367812
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 284,
+        "started_at": 1760367812,
+        "stopped_at": 1760368096
+      }
+    ]
+  },
+  {
+    "session_name": "Session #4",
+    "elapsed_time": 3555,
+    "started_at": 1760368096,
+    "stopped_at": 1760371651,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 3,
+        "started_at": 1760368096,
+        "stopped_at": 1760368099
+      },
+      {
+        "view": "Stickies",
+        "elapsed_time": 28,
+        "started_at": 1760368099,
+        "stopped_at": 1760368127
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 153,
+        "started_at": 1760368127,
+        "stopped_at": 1760368280
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 2,
+        "started_at": 1760368280,
+        "stopped_at": 1760368282
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 3369,
+        "started_at": 1760368282,
+        "stopped_at": 1760371651
+      }
+    ]
   }
 ]

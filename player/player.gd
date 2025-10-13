@@ -15,7 +15,7 @@ var velocity : Vector2 = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	Logger.info("Player initialized")
 
 
 func _physics_process(_delta):
@@ -47,13 +47,12 @@ func _on_Area2D_body_entered(body):
 
 func take_damage():
 	if i_frames >= I_FRAMES:
-		if health > 1:
-			health -= 1
+		health -= 1
+		if health > 0:
 			GameStateManager.health_changed(health)
 			i_frames = 0
 		elif health <= 0:
-			health -= 1
 			GameStateManager.health_changed(health)
 			get_tree().reload_current_scene()
 		else:
-			printerr("Error with take_damage on player")
+			Logger.error("Error with take_damage on player")

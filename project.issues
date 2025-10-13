@@ -1,0 +1,30 @@
+{
+	"version": 1,
+	"meta": {
+		"tag_colors": {
+
+		}
+	},
+	"issues": {
+		"VonRage": [
+			{
+				"text": "First wave of enemies shoots crooked",
+				"tags": [
+					"bug"
+				],
+				"timestamp": 1760367366,
+				"estimate": 1,
+				"priority": 0
+			},
+			{
+				"text": "Boss isn't working at all. Redo it.",
+				"tags": [
+					"bug",
+					"gameplay"
+				],
+				"timestamp": 1760367530,
+				"priority": 1
+			}
+		]
+	}
+}

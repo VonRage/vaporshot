@@ -3,14 +3,14 @@ class_name EnemyBase
 
 
 # Movement
-export var speed :float = -100
-export var stationary_speed : float = -100
+export var speed: float = -100
+export var stationary_speed: float = -100
 
 # Shooting
-export var shoot_interval : float = 2.0
-var shoot_timer : float = 0
-var player : KinematicBody2D = null
-export var bullet_speed = 500
+export var shoot_interval: float = 2.0
+var shoot_timer: float = 0
+var player: KinematicBody2D = null
+export var bullet_speed: float = 500
 
 # Special behaviors
 export var kamikaze_type : bool = false
@@ -43,7 +43,7 @@ func _move_toward_player(delta):
 		# Move toward player
 		position += direction * -speed * delta
 	else:
-		printerr("Error calling _move_toward_player")
+		Logger.error("Error @ move_toward_player on enemy_base")
 
 
 func _move_toward_player_and_leave(delta):
@@ -55,7 +55,7 @@ func _move_toward_player_and_leave(delta):
 
 # Shot pattern functions
 
-func _shoot_burst(num_bullets : int = 3, distancing: float = 0.05, shoot_dir: Vector2 = Vector2(-1, 0)):
+func _shoot_burst(num_bullets: int = 3, distancing: float = 0.15, shoot_dir: Vector2 = Vector2(-1, 0)):
 	for i in num_bullets:
 		BulletManager.spawn_bullet(
 			global_position,

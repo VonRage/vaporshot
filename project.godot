@@ -74,6 +74,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/layouts/pattern_layout.gd"
 }, {
+"base": "Resource",
+"class": "SaveSystemTestResource",
+"language": "GDScript",
+"path": "res://addons/save_system/save_system_test/save_system_test_resource.gd"
+}, {
+"base": "Resource",
+"class": "SaveSystemTestSubresource",
+"language": "GDScript",
+"path": "res://addons/save_system/save_system_test/save_system_test_subresource.gd"
+}, {
 "base": "Reference",
 "class": "Utils",
 "language": "GDScript",
@@ -93,6 +103,8 @@ _global_script_class_icons={
 "PCamShake": "",
 "PCamUtils": "",
 "PatternLayout": "",
+"SaveSystemTestResource": "",
+"SaveSystemTestSubresource": "",
 "Utils": ""
 }
 
@@ -108,6 +120,8 @@ config/icon="res://icon.png"
 BulletManager="*res://bullet_manager/bullet_manager.gd"
 GameStateManager="*res://resources/game_state.gd"
 procam="*res://addons/ProCam2D/scripts/autoload.gd"
+SaveSystem="*res://addons/save_system/save_system.gd"
+Logger="*res://addons/gs_logger/logger.gd"
 
 [display]
 
@@ -118,7 +132,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg", "res://addons/ProCam2D/plugin.cfg", "res://addons/time-tracker/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg", "res://addons/ProCam2D/plugin.cfg", "res://addons/gs_logger/plugin.cfg", "res://addons/save_system/plugin.cfg", "res://addons/sticky_scribe/plugin.cfg", "res://addons/time-tracker/plugin.cfg" )
 
 [gui]
 
