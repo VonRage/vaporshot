@@ -118,8 +118,7 @@ func _shoot_expand(num_bullets = 8, ring_radius = 50):
 		)
 
 
-func _shoot_spread(num_bullets = 5, cone_angle = 45):
-	var move_direction = Vector2(-1, 0)  # direction cone points
+func _shoot_spread(num_bullets: int = 5, cone_angle: float = 45, shoot_dir: Vector2 = Vector2(-1, 0)):
 	var cone_angle_rad = deg2rad(cone_angle)
 
 	for i in range(num_bullets):
@@ -127,12 +126,9 @@ func _shoot_spread(num_bullets = 5, cone_angle = 45):
 		var t = i / float(num_bullets - 1) if num_bullets > 1 else 0.5
 		var offset_angle = (t - 0.5) * cone_angle_rad  # -cone/2 to +cone/2
 
-		# Rotate the base direction by offset_angle
-		var shoot_dir = move_direction.rotated(offset_angle)
-
 		BulletManager.spawn_bullet(
 			global_position,
-			shoot_dir,
+			shoot_dir.rotated(offset_angle),
 			"enemy",
 			bullet_speed,
 			5.0

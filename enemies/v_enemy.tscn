@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://enemies/kamikaze_enemy.gd" type="Script" id=1]
-[ext_resource path="res://enemies/orb_ship.png" type="Texture" id=2]
+[ext_resource path="res://enemies/v_enemy.gd" type="Script" id=1]
+[ext_resource path="res://enemies/v_ship.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
 
 [sub_resource type="Animation" id=2]
 length = 0.1
@@ -33,7 +33,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[node name="KamikazeEnemy" type="KinematicBody2D" groups=["enemy"]]
+[node name="VEnemy" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -48,11 +48,14 @@ __meta__ = {
 "op_exp": false,
 "player": "AnimationPlayer",
 "slice": "",
-"source": "/home/vonrage/Pictures/aseprite/shmup-platformer/orb_ship.aseprite"
+"source": "/home/vonrage/Pictures/aseprite/shmup-platformer/v_ship.aseprite"
 }
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 4.76837e-07 )
+rotation = 1.57079
+scale = Vector2( 1, 0.997222 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -60,14 +63,24 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -1, 0 )
+rotation = 1.57079
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1.90735e-06, -2.38419e-07 )
+scale = Vector2( 3.2, 1.6 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+scale = Vector2( 3.21056, 1.61998 )
+process_parent = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/default = SubResource( 2 )
 
-[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-process_parent = true
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

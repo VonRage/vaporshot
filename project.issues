@@ -8,7 +8,7 @@
 	"issues": {
 		"VonRage": [
 			{
-				"text": "First wave of enemies shoots crooked",
+				"text": "Enemies shoot crooked if, well, crooked. Or moreso they shoot too straight",
 				"tags": [
 					"bug"
 				],
