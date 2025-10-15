@@ -2,7 +2,8 @@
 	"version": 1,
 	"meta": {
 		"tag_colors": {
-
+			"bug": "ff6663",
+			"gameplay": "9ee09e"
 		}
 	},
 	"issues": {
@@ -24,6 +25,14 @@
 				],
 				"timestamp": 1760367530,
 				"priority": 1
+			},
+			{
+				"text": "Inputs for Xbox series controller coming in wrong. Start is being read as button 7 (which it is in sdl2) but Godot thinks it should be button 11",
+				"tags": [
+					"bug"
+				],
+				"timestamp": 1760508707,
+				"priority": -1
 			}
 		]
 	}

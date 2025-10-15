@@ -156,5 +156,95 @@
         "stopped_at": 1760371651
       }
     ]
+  },
+  {
+    "session_name": "Session #5",
+    "elapsed_time": 11615,
+    "started_at": 1760404035,
+    "stopped_at": 1760415650,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 158,
+        "started_at": 1760404035,
+        "stopped_at": 1760404193
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 2363,
+        "started_at": 1760404193,
+        "stopped_at": 1760406556
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 5624,
+        "started_at": 1760406556,
+        "stopped_at": 1760412180
+      },
+      {
+        "view": "AssetLib",
+        "elapsed_time": 3470,
+        "started_at": 1760412180,
+        "stopped_at": 1760415650
+      }
+    ]
+  },
+  {
+    "session_name": "Session #6 (Rough Estimate)",
+    "elapsed_time": 14400,
+    "started_at": 1760485200,
+    "stopped_at": 1760506800,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 14400,
+        "started_at": 1760485200,
+        "stopped_at": 1760506800
+      }
+    ]
+  },
+  {
+    "session_name": "Session #7",
+    "elapsed_time": 16570,
+    "started_at": 1760540619,
+    "stopped_at": 1760557189,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 1203,
+        "started_at": 1760540619,
+        "stopped_at": 1760541822
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 1660,
+        "started_at": 1760541822,
+        "stopped_at": 1760543482
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 10347,
+        "started_at": 1760543482,
+        "stopped_at": 1760553829
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 658,
+        "started_at": 1760553829,
+        "stopped_at": 1760554487
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 2700,
+        "started_at": 1760554487,
+        "stopped_at": 1760557187
+      },
+      {
+        "view": "_paused",
+        "elapsed_time": 2,
+        "started_at": 1760557187,
+        "stopped_at": 1760557189
+      }
+    ]
   }
 ]
