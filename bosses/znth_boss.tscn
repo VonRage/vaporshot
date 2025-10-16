@@ -4,7 +4,8 @@
 [ext_resource path="res://bosses/CRT.png" type="Texture" id=2]
 [ext_resource path="res://bosses/znth_boss.gd" type="Script" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=6]
+radius = 137.31
 
 [sub_resource type="Animation" id=4]
 length = 0.1
@@ -273,7 +274,7 @@ shader_param/scanlines_width = 0.25
 shader_param/grille_opacity = 0.3
 shader_param/resolution = Vector2( 480, 270 )
 shader_param/pixelate = false
-shader_param/roll = true
+shader_param/roll = false
 shader_param/roll_speed = 8.0
 shader_param/roll_size = 0.0
 shader_param/roll_variation = 1.8
@@ -317,14 +318,14 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[node name="ZNth" type="StaticBody2D"]
+[node name="ZNth" type="StaticBody2D" groups=["boss"]]
 position = Vector2( 460, 272 )
-collision_layer = 0
-collision_mask = 0
+z_index = -2
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+position = Vector2( 34, -48 )
+shape = SubResource( 6 )
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_left = 0.5
@@ -337,7 +338,7 @@ margin_right = 280.0
 margin_bottom = 140.0
 color = Color( 0.227451, 0.227451, 0.227451, 1 )
 
-[node name="FaceSprite" type="Sprite" parent="."]
+[node name="FaceSprite" type="Sprite" parent="." groups=["boss"]]
 position = Vector2( 20, 0 )
 texture = ExtResource( 1 )
 __meta__ = {
@@ -390,3 +391,10 @@ anims/default = SubResource( 5 )
 
 [node name="LaserPivot" type="Node2D" parent="."]
 position = Vector2( 32, -25 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 34.5, 1.00002 )
+scale = Vector2( 26.85, 26.1 )
+physics_process_parent = true
+
+[connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_entered"]

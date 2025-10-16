@@ -6,10 +6,10 @@ onready var file_name = get_script().get_path().get_file()
 export var cast_speed: float = 7000.0
 export var max_length: float = 1400.0
 
-export var color: Color = Color.blue setget set_color
+export var color: Color = Color.red setget set_color
 onready var line_2d: Line2D = $Line2D
-onready var line_2d_point1 = line_2d.points[1]
-var pd = print_debug()
+
+onready var time_until_damage_allowed: float = 1.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,12 +25,6 @@ func _physics_process(delta):
 	var func_name = ("_physics_process")
 	Logger.fine("%s.%s: Called" % [file_name, func_name])
 
-	cast_to.x = move_toward(
-		cast_to.x,
-		max_length,
-		cast_speed * delta
-	)
-
 	force_raycast_update()
 
 	if is_colliding():
@@ -38,9 +32,15 @@ func _physics_process(delta):
 		Logger.info("%s.%s: Laser detecting collision at %s" % [file_name, func_name, collision_point])
 		cast_to = collision_point
 		Logger.info("%s.%s: cast_to set to %s" % [file_name, func_name, collision_point])
-		line_2d_point1 = cast_to
-		Logger.info("%s.%s: Child node property %s set to %s" % [file_name, func_name, line_2d_point1, cast_to])
+		line_2d.points[1] = cast_to
+		Logger.info("%s.%s: Child node property %s set to %s" % [file_name, func_name, line_2d.points[1], cast_to])
 
+	elif not is_colliding():
+		cast_to.x = move_toward(
+			cast_to.x,
+			max_length,
+			cast_speed * delta
+			)
 
 export var is_casting: bool = false setget set_is_casting
 
@@ -56,7 +56,7 @@ func set_is_casting(new_value: bool) -> void:
 		Logger.info("%s.%s: not line_2d" % [file_name, func_name])
 		return
 
-#	self.set_physics_process(is_casting)
+	self.set_physics_process(is_casting)
 
 	if is_casting == false:
 		cast_to = Vector2.ZERO
@@ -99,3 +99,9 @@ func set_color(new_color: Color) -> void:
 		Logger.warn("set_color @ laser: !line2d")
 		return
 	line_2d.modulate = new_color
+
+
+func _on_body_entered(body):
+	if body.is_in_group("player"):
+		if body.has_method("take_damage"):
+			body.take_damage()

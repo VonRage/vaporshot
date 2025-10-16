@@ -11,7 +11,7 @@ onready var visibility_enabler: VisibilityEnabler2D = $VisibilityEnabler2D
 func _ready():
 	parent = get_parent()
 
-func _process(delta):
+func _physics_process(delta):
 	.shot_timer(delta)
 	if shoot_timer >= shoot_interval:
 		._shoot_spread()

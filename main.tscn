@@ -19,3 +19,5 @@ script = ExtResource( 1 )
 [node name="HUD" parent="UIBase" instance=ExtResource( 3 )]
 
 [node name="PauseMenu" parent="UIBase" instance=ExtResource( 4 )]
+
+[node name="Timer" type="Timer" parent="."]

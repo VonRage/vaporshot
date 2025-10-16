@@ -18,7 +18,7 @@ margin_left = -58.0
 margin_top = -20.0
 margin_right = 58.0
 margin_bottom = 20.0
-color = Color( 0.152941, 0.152941, 0.152941, 1 )
+color = Color( 0.152941, 0.152941, 0.152941, 0.784314 )
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
 anchor_right = 1.0

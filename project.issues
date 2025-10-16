@@ -3,7 +3,8 @@
 	"meta": {
 		"tag_colors": {
 			"bug": "ff6663",
-			"gameplay": "9ee09e"
+			"gameplay": "9ee09e",
+			"feature": "9ec1cf"
 		}
 	},
 	"issues": {
@@ -18,21 +19,61 @@
 				"priority": 0
 			},
 			{
-				"text": "Boss isn't working at all. Redo it.",
-				"tags": [
-					"bug",
-					"gameplay"
-				],
-				"timestamp": 1760367530,
-				"priority": 1
-			},
-			{
-				"text": "Inputs for Xbox series controller coming in wrong. Start is being read as button 7 (which it is in sdl2) but Godot thinks it should be button 11",
+				"text": "Inputs for Xbox series controller coming in wrong when connected wired. Start is being read as button 7 (which it is in sdl2) but Godot thinks it should be button 11. Not sure if the issue is with SDL2 or Godot.",
 				"tags": [
 					"bug"
 				],
 				"timestamp": 1760508707,
 				"priority": -1
+			},
+			{
+				"text": "Title screen so game doesn't start automatically",
+				"tags": [
+					"feature"
+				],
+				"timestamp": 1760629273,
+				"priority": -1
+			},
+			{
+				"text": "Random health drops from enemies",
+				"tags": [
+					"feature"
+				],
+				"timestamp": 1760629523,
+				"priority": -2
+			},
+			{
+				"text": "Random upgrade drop (maybe just a multishot or fire rate increase for now) from enemies",
+				"tags": [
+					"feature"
+				],
+				"timestamp": 1760629550,
+				"priority": -2
+			},
+			{
+				"text": "Lasers on boss collision with player needs to activate take_damage",
+				"tags": [
+					"gameplay"
+				],
+				"timestamp": 1760629601,
+				"priority": 1
+			},
+			{
+				"text": "Music & sound effects singleton",
+				"tags": [
+					"feature"
+				],
+				"timestamp": 1760630690,
+				"priority": 0
+			},
+			{
+				"text": "Boss health & healthbar",
+				"tags": [
+					"feature",
+					"gameplay"
+				],
+				"timestamp": 1760640881,
+				"priority": 0
 			}
 		]
 	}

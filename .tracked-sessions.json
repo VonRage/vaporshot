@@ -246,5 +246,161 @@
         "stopped_at": 1760557189
       }
     ]
+  },
+  {
+    "session_name": "Session #8",
+    "elapsed_time": 5072,
+    "started_at": 1760558288,
+    "stopped_at": 1760563360,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 5072,
+        "started_at": 1760558288,
+        "stopped_at": 1760563360
+      }
+    ]
+  },
+  {
+    "session_name": "Lazers!",
+    "elapsed_time": 5292,
+    "started_at": 1760564208,
+    "stopped_at": 1760569500,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 24,
+        "started_at": 1760564208,
+        "stopped_at": 1760564232
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 621,
+        "started_at": 1760564232,
+        "stopped_at": 1760564853
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 2593,
+        "started_at": 1760564853,
+        "stopped_at": 1760567446
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 108,
+        "started_at": 1760567446,
+        "stopped_at": 1760567554
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 1946,
+        "started_at": 1760567554,
+        "stopped_at": 1760569500
+      }
+    ]
+  },
+  {
+    "session_name": "Session #10",
+    "elapsed_time": 176,
+    "started_at": 1760586002,
+    "stopped_at": 1760586178,
+    "sections": [
+      {
+        "view": "3D",
+        "elapsed_time": 176,
+        "started_at": 1760586002,
+        "stopped_at": 1760586178
+      }
+    ]
+  },
+  {
+    "session_name": "Session #11",
+    "elapsed_time": 2972,
+    "started_at": 1760587057,
+    "stopped_at": 1760590029,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 2972,
+        "started_at": 1760587057,
+        "stopped_at": 1760590029
+      }
+    ]
+  },
+  {
+    "session_name": "Session #12",
+    "elapsed_time": 20788,
+    "started_at": 1760629268,
+    "stopped_at": 1760650056,
+    "sections": [
+      {
+        "view": "Stickies",
+        "elapsed_time": 1182,
+        "started_at": 1760629268,
+        "stopped_at": 1760630450
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 238,
+        "started_at": 1760630450,
+        "stopped_at": 1760630688
+      },
+      {
+        "view": "Stickies",
+        "elapsed_time": 382,
+        "started_at": 1760630688,
+        "stopped_at": 1760631070
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 8513,
+        "started_at": 1760631070,
+        "stopped_at": 1760639583
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 1283,
+        "started_at": 1760639583,
+        "stopped_at": 1760640866
+      },
+      {
+        "view": "Stickies",
+        "elapsed_time": 129,
+        "started_at": 1760640866,
+        "stopped_at": 1760640995
+      },
+      {
+        "view": "_paused",
+        "elapsed_time": 4124,
+        "started_at": 1760640995,
+        "stopped_at": 1760645119
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 4937,
+        "started_at": 1760645119,
+        "stopped_at": 1760650056
+      }
+    ]
+  },
+  {
+    "session_name": "Session #13",
+    "elapsed_time": 2803,
+    "started_at": 1760650274,
+    "stopped_at": 1760653077,
+    "sections": [
+      {
+        "view": "Script",
+        "elapsed_time": 1556,
+        "started_at": 1760650274,
+        "stopped_at": 1760651830
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 1247,
+        "started_at": 1760651830,
+        "stopped_at": 1760653077
+      }
+    ]
   }
 ]

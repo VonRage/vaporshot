@@ -10,6 +10,8 @@ var score : int = 0
 var time : float = 0.0
 # Find a better way to do this. Setting it to 3 here and in player feels wrong
 var current_health: int = 3
+onready var boss_health_bar: ProgressBar = $BossHealthBar
+var boss_health: int = 25
 
 
 func _ready():
@@ -18,6 +20,7 @@ func _ready():
 
 	GameStateManager.connect("score_changed", self, "_update_score")
 	GameStateManager.connect("health_changed", self, "_update_health")
+	GameStateManager.connect("boss_damaged", self, "_update_boss_healthbar")
 
 
 func _process(delta):
@@ -51,3 +54,10 @@ func _update_health(updated_health):
 			heart1.play("dead")
 			heart2.play("dead")
 			heart3.play("dead")
+
+
+func _update_boss_healthbar():
+	boss_health_bar.value -= 1
+	if boss_health_bar.value == 0:
+		var tween = create_tween()
+		tween.tween_property(boss_health_bar, "modulate:a", 0, 1)

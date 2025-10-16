@@ -6,6 +6,7 @@
     <explicitExcludes>
       <Path>.idea</Path>
       <Path>.import</Path>
+      <Path>debug.log</Path>
     </explicitExcludes>
   </component>
 </project>

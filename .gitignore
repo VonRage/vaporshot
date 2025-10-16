@@ -14,4 +14,5 @@ data_*/
 debug.log
 
 # Packaged game ignores
-
+*.vpk
+*.x86_64

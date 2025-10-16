@@ -3,12 +3,13 @@
 [ext_resource path="res://bosses/laser.gd" type="Script" id=1]
 
 [node name="Laser" type="RayCast2D"]
-cast_to = Vector2( 600, 0 )
+cast_to = Vector2( 0, 0 )
 script = ExtResource( 1 )
+color = Color( 0.992157, 0, 1, 1 )
 
 [node name="Line2D" type="Line2D" parent="."]
 modulate = Color( 0.72549, 0.501961, 0.698039, 1 )
-points = PoolVector2Array( 0, 0, 600, 0 )
+points = PoolVector2Array( 0, 0, 0, 0 )
 width = 50.0
 default_color = Color( 1, 1, 1, 1 )
 joint_mode = 2
