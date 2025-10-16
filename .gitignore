@@ -16,3 +16,6 @@ debug.log
 # Packaged game ignores
 *.vpk
 *.x86_64
+
+# IDE Configs
+.idea/
