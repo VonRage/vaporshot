@@ -7,13 +7,14 @@ var bullet_scene = preload("res://bullet_manager/bullet.tscn")
 #var laser_scene = preload("res://bullet_manager/laser.tscn")
 
 
-func spawn_bullet(pos: Vector2, dir: Vector2, faction: String = "player", speed := 1250.0, lifetime := 3.0):
+func spawn_bullet(pos: Vector2, dir: Vector2, faction: String = "player", speed := 1250.0, lifetime := 3.0, rotation := 0):
 	var b = bullet_scene.instance()
 	add_child(b)
 	b.global_position = pos
 	b.velocity = dir.normalized() * speed
 	b.lifetime = lifetime
 	b.faction = faction
+	b.rotation_degrees = rotation
 
 	return b
 

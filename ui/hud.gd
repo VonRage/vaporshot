@@ -1,6 +1,7 @@
 extends Control
 
 
+onready var start_button: Button = $Start_Button
 onready var score_label : Label = $ColorRect/CenterContainer/VBoxContainer/ScoreLabel
 onready var time_label : Label = $ColorRect/CenterContainer/VBoxContainer/TimeLabel
 onready var heart1: AnimatedSprite = $ColorRect2/CenterContainer/HBoxContainer/Control3/Heart1
@@ -24,9 +25,12 @@ func _ready():
 
 
 func _process(delta):
-	time += delta
+	if get_tree().paused == false:
+		time += delta
 	var time_seconds : int = int(time)
 	time_label.text = "%02d:%02d" % [time_seconds / 60, time_seconds % 60]
+	if Input.is_action_just_pressed("shoot") and get_tree().paused == true:
+		_on_Start_Button_pressed()
 
 
 func _update_score(update) -> void:
@@ -61,3 +65,9 @@ func _update_boss_healthbar():
 	if boss_health_bar.value == 0:
 		var tween = create_tween()
 		tween.tween_property(boss_health_bar, "modulate:a", 0, 1)
+
+
+func _on_Start_Button_pressed():
+	get_tree().paused = false
+	start_button.visible = false
+	start_button.disabled = true

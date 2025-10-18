@@ -11,11 +11,13 @@ onready var visibility_enabler: VisibilityEnabler2D = $VisibilityEnabler2D
 func _ready():
 	parent = get_parent()
 
+
 func _process(delta):
 	.shot_timer(delta)
 	if shoot_timer >= shoot_interval:
-		._shoot_burst()
+		._shoot_burst(3, 0.15, Vector2(-1, 0),parent.rotation_degrees)
 		shoot_timer = 0.0
+
 
 func _on_VisibilityNotifier2D_screen_entered():
 	siblings = parent.get_children()

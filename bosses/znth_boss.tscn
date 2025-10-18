@@ -318,9 +318,11 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[node name="ZNth" type="StaticBody2D" groups=["boss"]]
+[node name="ZNth" type="KinematicBody2D" groups=["enemy"]]
 position = Vector2( 460, 272 )
 z_index = -2
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

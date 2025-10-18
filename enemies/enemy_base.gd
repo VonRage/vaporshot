@@ -55,14 +55,15 @@ func _move_toward_player_and_leave(delta):
 
 # Shot pattern functions
 
-func _shoot_burst(num_bullets: int = 3, distancing: float = 0.15, shoot_dir: Vector2 = Vector2(-1, 0)):
+func _shoot_burst(num_bullets: int = 3, distancing: float = 0.15, shoot_dir: Vector2 = Vector2(-1, 0), rotation: float= 0):
 	for i in num_bullets:
 		BulletManager.spawn_bullet(
 			global_position,
 			shoot_dir,
 			"enemy",
 			bullet_speed,
-			5.0
+			5.0,
+			rotation
 		)
 		yield(get_tree().create_timer(distancing), "timeout")
 
@@ -85,6 +86,28 @@ func _shoot_aimed():
 		)
 	else:
 		printerr("Error calling _shoot_aimed")
+
+
+func _shoot_aimed_burst(num_bullets: int = 3, distancing: float = 0.15):
+	if !player:
+		_get_player()
+		print_debug("Had to get player %s" % player)
+	elif player:
+		# Spawn bullet via manager
+		for i in num_bullets:
+			# Calculate direction to player's current position
+			var shoot_dir = (player.global_position - global_position).normalized()
+			BulletManager.spawn_bullet(
+				global_position,
+				shoot_dir,
+				"enemy",
+				bullet_speed,
+				5.0
+			)
+			yield(get_tree().create_timer(distancing), "timeout")
+	else:
+		printerr("Error calling _shoot_aimed")
+
 
 
 func _shoot_ring(num_bullets: int = 8, ring_radius: float = 50, shoot_dir : Vector2 = Vector2(-1, 0)):

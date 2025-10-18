@@ -51,28 +51,11 @@
 				"priority": -2
 			},
 			{
-				"text": "Lasers on boss collision with player needs to activate take_damage",
-				"tags": [
-					"gameplay"
-				],
-				"timestamp": 1760629601,
-				"priority": 1
-			},
-			{
 				"text": "Music & sound effects singleton",
 				"tags": [
 					"feature"
 				],
 				"timestamp": 1760630690,
-				"priority": 0
-			},
-			{
-				"text": "Boss health & healthbar",
-				"tags": [
-					"feature",
-					"gameplay"
-				],
-				"timestamp": 1760640881,
 				"priority": 0
 			}
 		]

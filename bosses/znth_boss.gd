@@ -1,12 +1,12 @@
-extends StaticBody2D
-signal start_casting
+extends EnemyBase
+
 
 onready var file_name = get_script().get_path().get_file()
 
 var laser_scene = preload("res://bosses/laser.tscn")
 onready var laser_pivot := $LaserPivot
 onready var lasers: Array
-onready var laser_amount = 6
+export var laser_amount = 6
 export var rotation_speed = -1.0
 export var rotation_windup = 2.0
 onready var lasers_active: bool = false
@@ -14,15 +14,16 @@ onready var lasers_active: bool = false
 var tween = null
 var rng = RandomNumberGenerator.new()
 
-onready var player = get_tree().get_nodes_in_group("player")
-
 export var health: = 25
 onready var face: Sprite = $FaceSprite
 export var flicker_amount: int = 3
 
+export var burst_count: int = 3
+export var burst_interval: float = 0.15
+
 
 func _ready():
-	_spawn_lasers(laser_amount)
+	._get_player()
 
 
 func _physics_process(delta):
@@ -32,9 +33,14 @@ func _physics_process(delta):
 		laser_pivot.rotation += rotation_speed * delta
 	else:
 		laser_pivot.rotation = 0
+		.shot_timer(delta)
+		if shoot_timer >= shoot_interval:
+			._shoot_aimed_burst(burst_count, burst_interval)
+			shoot_timer = 0.0
 	Logger.info("%s.%s: set is_casting to %s" % [file_name, func_name, Input.is_action_pressed("shoot")])
 
 
+# Spawns in lasers
 func _spawn_lasers(amount: int):
 	var loop = amount
 	var rad = TAU/loop
@@ -44,6 +50,7 @@ func _spawn_lasers(amount: int):
 		laser_pivot.add_child(l)
 		lasers.append(l)
 		lasers[i].rotation = angle
+		lasers[i].cast_to.x = 0
 
 
 func _on_VisibilityEnabler2D_screen_entered():
@@ -53,6 +60,7 @@ func _on_VisibilityEnabler2D_screen_entered():
 var interval: float
 var timer
 
+# Timing for lasers being on/off
 func _laser_interval() -> void:
 	if timer != null:
 		timer.queue_free()
@@ -65,8 +73,10 @@ func _laser_interval() -> void:
 	timer.connect("timeout", self, "_laser_handler")
 
 
+# Triggering the lasers to be active
 func _laser_handler():
 	if lasers_active == false:
+		_spawn_lasers(laser_amount)
 		for i in lasers.size():
 				lasers[i].is_casting = true
 		lasers_active = true

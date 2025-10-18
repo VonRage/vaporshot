@@ -34,6 +34,9 @@ func _physics_process(delta):
 		Logger.info("%s.%s: cast_to set to %s" % [file_name, func_name, collision_point])
 		line_2d.points[1] = cast_to
 		Logger.info("%s.%s: Child node property %s set to %s" % [file_name, func_name, line_2d.points[1], cast_to])
+		var collided_object = get_collider()
+		if collided_object is KinematicBody2D and collided_object.has_method("take_damage"):
+			collided_object.take_damage()
 
 	elif not is_colliding():
 		cast_to.x = move_toward(
@@ -100,8 +103,3 @@ func set_color(new_color: Color) -> void:
 		return
 	line_2d.modulate = new_color
 
-
-func _on_body_entered(body):
-	if body.is_in_group("player"):
-		if body.has_method("take_damage"):
-			body.take_damage()
