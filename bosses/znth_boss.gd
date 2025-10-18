@@ -14,6 +14,7 @@ onready var lasers_active: bool = false
 var tween = null
 var rng = RandomNumberGenerator.new()
 
+onready var can_be_damaged: bool = false
 export var health: = 25
 onready var face: Sprite = $FaceSprite
 export var flicker_amount: int = 3
@@ -56,6 +57,8 @@ func _spawn_lasers(amount: int):
 func _on_VisibilityEnabler2D_screen_entered():
 	_laser_interval()
 	GameStateManager.boss_on_screen()
+	yield(get_tree().create_timer(1), "timeout")
+	can_be_damaged = true
 
 
 var interval: float
@@ -92,15 +95,16 @@ func _laser_handler():
 
 func take_damage():
 	var func_name = "take_damage()"
-	health -= 1
-	if health >= 0:
-		GameStateManager.boss_damaged()
-		for i in flicker_amount:
-			face.visible = false
-			face.visible = true
-	elif health < 0:
+	if can_be_damaged == true:
 		health -= 1
-		tween = create_tween()
-		tween.tween_property(self, "modulate:a", 0, 1)
-	else:
-		Logger.error("%s.%s: Error" % [file_name, func_name])
+		if health >= 0:
+			GameStateManager.boss_damaged()
+			for i in flicker_amount:
+				face.visible = false
+				face.visible = true
+		elif health < 0:
+			health -= 1
+			tween = create_tween()
+			tween.tween_property(self, "modulate:a", 0, 1)
+		else:
+			Logger.error("%s.%s: Error" % [file_name, func_name])

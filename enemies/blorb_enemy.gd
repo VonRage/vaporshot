@@ -17,18 +17,22 @@ func _physics_process(delta):
 	if shoot_timer >= shoot_interval:
 		._shoot_spread()
 		shoot_timer = 0.0
+	if active == false:
+		active = true
 
 
 func _on_VisibilityNotifier2D_screen_entered():
-	print_debug("hello")
 	if parent:
 		siblings = parent.get_children()
 		sibling_count = parent.get_child_count()
-		if parent.is_in_group("enemy_group") and active == false:
-			for i in sibling_count:
-				siblings[i]._enable()
-			parent.ships_visible = true
-			active = true
+		set_physics_process(true)
+		parent.ships_visible = true
+		## NO IDEA WHY THIS WON'T WORK ON THIS ENEMY BUT IT'S FINE ON V ENEMY!!!
+#		if parent.is_in_group("enemy_group") and active == false:
+#			for i in sibling_count:
+#				siblings[i]._enable()
+#			parent.ships_visible = true
+#			active = true
 
 
 func _on_VisibilityNotifier2D_screen_exited():

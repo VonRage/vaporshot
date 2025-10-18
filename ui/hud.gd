@@ -63,7 +63,7 @@ func _update_health(updated_health):
 
 func _show_boss_healthbar():
 	var tween = create_tween()
-	tween.tween_property(boss_health_bar, "modulate:a", 1, 1)
+	tween.tween_property(boss_health_bar, "modulate:a", 0.8, 1)
 
 func _update_boss_healthbar():
 	boss_health_bar.value -= 1
