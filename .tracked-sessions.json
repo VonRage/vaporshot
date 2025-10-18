@@ -402,5 +402,99 @@
         "stopped_at": 1760653077
       }
     ]
+  },
+  {
+    "session_name": "Session #14",
+    "elapsed_time": 8819,
+    "started_at": 1760764099,
+    "stopped_at": 1760772918,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 1282,
+        "started_at": 1760764099,
+        "stopped_at": 1760765381
+      },
+      {
+        "view": "AssetLib",
+        "elapsed_time": 2,
+        "started_at": 1760765381,
+        "stopped_at": 1760765383
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 1,
+        "started_at": 1760765383,
+        "stopped_at": 1760765384
+      },
+      {
+        "view": "Stickies",
+        "elapsed_time": 15,
+        "started_at": 1760765384,
+        "stopped_at": 1760765399
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 4454,
+        "started_at": 1760765399,
+        "stopped_at": 1760769853
+      },
+      {
+        "view": "_paused",
+        "elapsed_time": 2274,
+        "started_at": 1760769853,
+        "stopped_at": 1760772127
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 791,
+        "started_at": 1760772127,
+        "stopped_at": 1760772918
+      }
+    ]
+  },
+  {
+    "session_name": "Session #15",
+    "elapsed_time": 5833,
+    "started_at": 1760773013,
+    "stopped_at": 1760778846,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 2137,
+        "started_at": 1760773013,
+        "stopped_at": 1760775150
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 2036,
+        "started_at": 1760775150,
+        "stopped_at": 1760777186
+      },
+      {
+        "view": "3D",
+        "elapsed_time": 1,
+        "started_at": 1760777186,
+        "stopped_at": 1760777187
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 236,
+        "started_at": 1760777187,
+        "stopped_at": 1760777423
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 1387,
+        "started_at": 1760777423,
+        "stopped_at": 1760778810
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 36,
+        "started_at": 1760778810,
+        "stopped_at": 1760778846
+      }
+    ]
   }
 ]

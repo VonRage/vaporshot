@@ -1,0 +1,131 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // For these launch configurations to work, you need to setup a HOMEBRODOT
+    // environment variable. On mac or linux, this can be done by adding
+    // the following to your .zshrc, .bashrc, or .bash_profile file:
+    // export HOMEBRODOT="/Applications/Godot.app/Contents/MacOS/Godot"
+    {
+      "name": "🕹 Debug Game",
+      // "type": "coreclr",
+      "request": "launch",
+      // "preLaunchTask": "build-without-tests",
+      "program": "${env:HOMEBRODOT}",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "🕹 Debug Game (VSCodium)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-without-tests",
+      "program": "",
+      "internalConsoleOptions": "openOnSessionStart",
+      "pipeTransport": {
+        "debuggerPath": "${extensionInstallFolder:muhammad-sammy.csharp}/.debugger/netcoredbg/netcoredbg",
+        "pipeCwd": "${workspaceFolder}",
+        "pipeProgram": "${env:HOMEBRODOT}",
+        "pipeArgs": [
+          "--debug"
+        ]
+      },
+      "osx": {
+        "pipeTransport": {
+          // netcoredbg for Apple Silicon isn't included with the VSCodium C#
+          // extension. You must clone it, build it, and setup the path to it.
+          // You'll need homebrew, cmake, and clang installed.
+          //
+          // --------------------------------------------------------------- //
+          //
+          //   git clone https://github.com/Samsung/netcoredbg.git
+          //   cd netcoredbg
+          //   mkdir build
+          //   cd build
+          //   CC=clang CXX=clang++ cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/../bin
+          //
+          // In your ~/.zshrc file, add the following line and adjust the path:
+          //
+          //   export NETCOREDBG="/path/to/netcoredbg/bin/netcoredbg"
+          //
+          "debuggerPath": "${env:NETCOREDBG}",
+          "pipeCwd": "${workspaceFolder}",
+          "pipeProgram": "${env:HOMEBRODOT}",
+          "pipeArgs": [
+            "--debug"
+          ]
+        }
+      },
+    },
+    // Debug the scene that matches the name of the currently open *.cs file
+    // (if there's a scene with the same name in the same directory).
+    {
+      "name": "🎭 Debug Current Scene",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-without-tests",
+      "program": "${env:HOMEBRODOT}",
+      "args": [
+        "${fileDirname}/${fileBasenameNoExtension}.tscn"
+      ],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "🧪 Debug Tests",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${env:HOMEBRODOT}",
+      "args": [
+        // These command line flags are used by GoDotTest to run tests.
+        "--run-tests",
+        "--quit-on-finish"
+      ],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "🔬 Debug Current Test",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${env:HOMEBRODOT}",
+      "args": [
+        // These command line flags are used by GoDotTest to run tests.
+        "--run-tests=${fileBasenameNoExtension}",
+        "--quit-on-finish"
+      ],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    },
+    {
+        "name": "Launch",
+        "type": "godot",
+        "request": "launch",
+        "project": "${workspaceFolder}",
+        "address": "127.0.0.1",
+        "port": 6007,
+        "scene": "main|current|pinned|<path>",
+        "editor_path": "${env:HOMEBRODOT}",
+        // engine command line flags
+        "profiling": false,
+        "single_threaded_scene": false,
+        "debug_collisions": false,
+        "debug_paths": false,
+        "debug_navigation": false,
+        "debug_avoidance": false,
+        "debug_stringnames": false,
+        "frame_delay": 0,
+        "time_scale": 1.0,
+        "disable_vsync": false,
+        "fixed_fps": 60,
+        // anything else
+        "additional_options": ""
+    }
+  ]
+}

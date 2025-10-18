@@ -10,28 +10,11 @@
 	"issues": {
 		"VonRage": [
 			{
-				"text": "Enemies shoot crooked if, well, crooked. Or moreso they shoot too straight",
-				"tags": [
-					"bug"
-				],
-				"timestamp": 1760367366,
-				"estimate": 1,
-				"priority": 0
-			},
-			{
 				"text": "Inputs for Xbox series controller coming in wrong when connected wired. Start is being read as button 7 (which it is in sdl2) but Godot thinks it should be button 11. Not sure if the issue is with SDL2 or Godot.",
 				"tags": [
 					"bug"
 				],
 				"timestamp": 1760508707,
-				"priority": -1
-			},
-			{
-				"text": "Title screen so game doesn't start automatically",
-				"tags": [
-					"feature"
-				],
-				"timestamp": 1760629273,
 				"priority": -1
 			},
 			{

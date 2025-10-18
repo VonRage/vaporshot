@@ -82,10 +82,10 @@ func _on_Area2D_body_entered(body):
 func take_damage():
 	var func_name: String = "take_damage()"
 	Logger.trace("%s.%s: Function called" % [file_name, func_name])
-	
+
 	if god_mode == true:
 		return
-	
+
 	if i_frames >= I_FRAMES:
 		health -= 1
 		if health > 0:

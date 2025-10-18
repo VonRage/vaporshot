@@ -12,7 +12,7 @@ func _ready():
 	parent = get_parent()
 
 
-func _process(delta):
+func _physics_process(delta):
 	.shot_timer(delta)
 	if shoot_timer >= shoot_interval:
 		._shoot_burst(3, 0.15, parent.rotation_degrees)
@@ -22,7 +22,7 @@ func _process(delta):
 func _on_VisibilityNotifier2D_screen_entered():
 	siblings = parent.get_children()
 	sibling_count = parent.get_child_count()
-	if parent and active == false:
+	if parent.is_in_group("enemy_group") and active == false:
 		for i in sibling_count:
 			siblings[i]._enable()
 		parent.ships_visible = true
@@ -34,4 +34,4 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 
 func _enable() -> void:
-	set_process(true)
+	set_physics_process(true)

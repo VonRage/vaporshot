@@ -9,7 +9,8 @@ onready var visibility_enabler: VisibilityEnabler2D = $VisibilityEnabler2D
 
 
 func _ready():
-	parent = get_parent()
+	parent = get_parent() if get_parent() is Node2D else null
+
 
 func _physics_process(delta):
 	.shot_timer(delta)
@@ -17,19 +18,23 @@ func _physics_process(delta):
 		._shoot_spread()
 		shoot_timer = 0.0
 
+
 func _on_VisibilityNotifier2D_screen_entered():
-	siblings = parent.get_children()
-	sibling_count = parent.get_child_count()
-	if parent and active == false:
-		for i in sibling_count:
-			siblings[i]._enable()
-		parent.ships_visible = true
-		active = true
+	print_debug("hello")
+	if parent:
+		siblings = parent.get_children()
+		sibling_count = parent.get_child_count()
+		if parent.is_in_group("enemy_group") and active == false:
+			for i in sibling_count:
+				siblings[i]._enable()
+			parent.ships_visible = true
+			active = true
 
 
 func _on_VisibilityNotifier2D_screen_exited():
-	queue_free()
+	if active == true:
+		queue_free()
 
 
 func _enable() -> void:
-	set_process(true)
+	set_physics_process(true)

@@ -1,6 +1,7 @@
 extends Node
 signal score_changed
 signal health_changed
+signal boss_on_screen
 signal boss_damaged
 
 
@@ -21,6 +22,10 @@ func health_changed(updated_health: int):
 
 func boss_damaged():
 	emit_signal("boss_damaged")
+
+
+func boss_on_screen():
+	emit_signal("boss_on_screen")
 
 
 func save():

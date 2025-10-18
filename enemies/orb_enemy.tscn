@@ -71,4 +71,4 @@ __meta__ = {
 anims/default = SubResource( 2 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-process_parent = true
+physics_process_parent = true

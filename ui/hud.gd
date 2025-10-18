@@ -22,6 +22,7 @@ func _ready():
 	GameStateManager.connect("score_changed", self, "_update_score")
 	GameStateManager.connect("health_changed", self, "_update_health")
 	GameStateManager.connect("boss_damaged", self, "_update_boss_healthbar")
+	GameStateManager.connect("boss_on_screen", self, "_show_boss_healthbar")
 
 
 func _process(delta):
@@ -60,6 +61,10 @@ func _update_health(updated_health):
 			heart3.play("dead")
 
 
+func _show_boss_healthbar():
+	var tween = create_tween()
+	tween.tween_property(boss_health_bar, "modulate:a", 1, 1)
+
 func _update_boss_healthbar():
 	boss_health_bar.value -= 1
 	if boss_health_bar.value == 0:
@@ -71,3 +76,4 @@ func _on_Start_Button_pressed():
 	get_tree().paused = false
 	start_button.visible = false
 	start_button.disabled = true
+

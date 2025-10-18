@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://environment/grid_tilemap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/ProCam2D/scripts/pcam_magnet.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://enemies/blorb_enemy.tscn" type="PackedScene" id=15]
 [ext_resource path="res://addons/ProCam2D/scripts/core/addns/pcam_shake.gd" type="Script" id=16]
 [ext_resource path="res://bosses/znth_boss.tscn" type="PackedScene" id=17]
+[ext_resource path="res://enemies/enemy_group.gd" type="Script" id=18]
 
 [sub_resource type="Curve2D" id=12]
 _data = {
@@ -33,9 +34,29 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 4656.85, -265, 0, 0, 0, 0, 3840.18, 351 )
 }
 
+[sub_resource type="Curve2D" id=19]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -168, -8, 0, 0, 0, 0, -1120, -8 )
+}
+
 [sub_resource type="Curve2D" id=17]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5320, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, -1112, 0, 0, 0, 0, 0, -1944, 0 )
+}
+
+[sub_resource type="Curve2D" id=20]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -1912, 8, 0, 0, 0, 0, -2784, 8 )
+}
+
+[sub_resource type="Curve2D" id=21]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -2776, 8, 0, 0, 0, 0, -3696, 8 )
+}
+
+[sub_resource type="Curve2D" id=22]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -3696, 0, 0, 0, 0, 0, -4536, 0 )
 }
 
 [sub_resource type="Shader" id=9]
@@ -266,74 +287,90 @@ position = Vector2( 554.98, -575 )
 curve = SubResource( 14 )
 group_number = 2
 
-[node name="Group3" parent="EnemiesBase" instance=ExtResource( 8 )]
-position = Vector2( 10792, -1040 )
+[node name="Group3" type="Node2D" parent="EnemiesBase" groups=["enemy_group"]]
+position = Vector2( 10120, -1040 )
+script = ExtResource( 18 )
 
-[node name="BlorbEnemy3" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -232, -96 )
+[node name="BlorbEnemy" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
+position = Vector2( -8, -98 )
 
-[node name="BlorbEnemy4" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -232, 80 )
-
-[node name="BlorbEnemy7" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -640, -96 )
-
-[node name="BlorbEnemy8" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -640, 80 )
-
-[node name="BlorbEnemy11" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -1088, -96 )
-
-[node name="BlorbEnemy12" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -1088, 80 )
-
-[node name="BlorbEnemy15" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -1528, -96 )
-
-[node name="BlorbEnemy16" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -1528, 80 )
-
-[node name="BlorbEnemy19" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -1936, -96 )
-
-[node name="BlorbEnemy20" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -1936, 80 )
-
-[node name="BlorbEnemy23" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -2384, -96 )
-
-[node name="BlorbEnemy24" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -2384, 80 )
-
-[node name="BlorbEnemy27" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -2816, -96 )
-
-[node name="BlorbEnemy28" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -2816, 80 )
-
-[node name="BlorbEnemy31" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -3224, -96 )
-
-[node name="BlorbEnemy32" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -3224, 80 )
-
-[node name="BlorbEnemy35" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -3672, -96 )
-
-[node name="BlorbEnemy36" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -3672, 80 )
-
-[node name="BlorbEnemy39" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -4112, -96 )
-
-[node name="BlorbEnemy40" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
-position = Vector2( -4112, 80 )
+[node name="BlorbEnemy2" parent="EnemiesBase/Group3" instance=ExtResource( 15 )]
+position = Vector2( -8, 80 )
 
 [node name="GroupPath3" parent="EnemiesBase" instance=ExtResource( 7 )]
 position = Vector2( 10792, -1040 )
 scale = Vector2( 1, 1 )
-curve = SubResource( 17 )
+curve = SubResource( 19 )
 group_number = 3
+speed = 100.0
+
+[node name="Group4" type="Node2D" parent="EnemiesBase" groups=["enemy_group"]]
+position = Vector2( 9288, -1040 )
+script = ExtResource( 18 )
+
+[node name="BlorbEnemy" parent="EnemiesBase/Group4" instance=ExtResource( 15 )]
+position = Vector2( -8, -98 )
+
+[node name="BlorbEnemy2" parent="EnemiesBase/Group4" instance=ExtResource( 15 )]
+position = Vector2( -8, 80 )
+
+[node name="GroupPath4" parent="EnemiesBase" instance=ExtResource( 7 )]
+position = Vector2( 10792, -1040 )
+scale = Vector2( 1, 1 )
+curve = SubResource( 17 )
+group_number = 4
+speed = 100.0
+
+[node name="Group5" type="Node2D" parent="EnemiesBase" groups=["enemy_group"]]
+position = Vector2( 8448, -1040 )
+script = ExtResource( 18 )
+
+[node name="BlorbEnemy" parent="EnemiesBase/Group5" instance=ExtResource( 15 )]
+position = Vector2( -8, -98 )
+
+[node name="BlorbEnemy2" parent="EnemiesBase/Group5" instance=ExtResource( 15 )]
+position = Vector2( -8, 80 )
+
+[node name="GroupPath5" parent="EnemiesBase" instance=ExtResource( 7 )]
+position = Vector2( 10792, -1040 )
+scale = Vector2( 1, 1 )
+curve = SubResource( 20 )
+group_number = 5
+speed = 100.0
+
+[node name="Group6" type="Node2D" parent="EnemiesBase" groups=["enemy_group"]]
+position = Vector2( 7568, -1040 )
+script = ExtResource( 18 )
+
+[node name="BlorbEnemy" parent="EnemiesBase/Group6" instance=ExtResource( 15 )]
+position = Vector2( -8, -98 )
+
+[node name="BlorbEnemy2" parent="EnemiesBase/Group6" instance=ExtResource( 15 )]
+position = Vector2( -8, 80 )
+
+[node name="GroupPath6" parent="EnemiesBase" instance=ExtResource( 7 )]
+position = Vector2( 10792, -1040 )
+scale = Vector2( 1, 1 )
+curve = SubResource( 21 )
+group_number = 6
+speed = 100.0
+
+[node name="Group7" type="Node2D" parent="EnemiesBase" groups=["enemy_group"]]
+position = Vector2( 6624, -1040 )
+script = ExtResource( 18 )
+
+[node name="BlorbEnemy" parent="EnemiesBase/Group7" instance=ExtResource( 15 )]
+position = Vector2( -8, -98 )
+
+[node name="BlorbEnemy2" parent="EnemiesBase/Group7" instance=ExtResource( 15 )]
+position = Vector2( -8, 80 )
+
+[node name="GroupPath7" parent="EnemiesBase" instance=ExtResource( 7 )]
+position = Vector2( 10792, -1040 )
+scale = Vector2( 1, 1 )
+curve = SubResource( 22 )
+group_number = 7
+speed = 100.0
 
 [node name="FollowGroup" parent="EnemiesBase" instance=ExtResource( 8 )]
 position = Vector2( 3344, -320 )
@@ -352,6 +389,33 @@ position = Vector2( 48, -48 )
 
 [node name="KamikazeEnemy5" parent="EnemiesBase/FollowGroup" instance=ExtResource( 13 )]
 position = Vector2( 16, 14 )
+
+[node name="FollowGroup2" parent="EnemiesBase" instance=ExtResource( 8 )]
+position = Vector2( 7104, -1014 )
+
+[node name="KamikazeEnemy" parent="EnemiesBase/FollowGroup2" instance=ExtResource( 13 )]
+position = Vector2( -6, -122 )
+
+[node name="KamikazeEnemy2" parent="EnemiesBase/FollowGroup2" instance=ExtResource( 13 )]
+position = Vector2( -6, 38 )
+
+[node name="KamikazeEnemy3" parent="EnemiesBase/FollowGroup2" instance=ExtResource( 13 )]
+position = Vector2( 912, -122 )
+
+[node name="KamikazeEnemy4" parent="EnemiesBase/FollowGroup2" instance=ExtResource( 13 )]
+position = Vector2( 912, 38 )
+
+[node name="KamikazeEnemy5" parent="EnemiesBase/FollowGroup2" instance=ExtResource( 13 )]
+position = Vector2( 1776, -114 )
+
+[node name="KamikazeEnemy6" parent="EnemiesBase/FollowGroup2" instance=ExtResource( 13 )]
+position = Vector2( 1776, 46 )
+
+[node name="KamikazeEnemy7" parent="EnemiesBase/FollowGroup2" instance=ExtResource( 13 )]
+position = Vector2( 2576, -124 )
+
+[node name="KamikazeEnemy8" parent="EnemiesBase/FollowGroup2" instance=ExtResource( 13 )]
+position = Vector2( 2576, 36 )
 
 [node name="TurretGroup" type="Node2D" parent="EnemiesBase"]
 

@@ -5,7 +5,7 @@ extends Node2D
 
 
 func _ready():
-    get_tree().paused = true
+	get_tree().paused = true
 
 
 #func spawn_level():

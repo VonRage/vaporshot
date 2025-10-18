@@ -55,6 +55,7 @@ func _spawn_lasers(amount: int):
 
 func _on_VisibilityEnabler2D_screen_entered():
 	_laser_interval()
+	GameStateManager.boss_on_screen()
 
 
 var interval: float

@@ -77,7 +77,7 @@ scale = Vector2( 3.2, 1.6 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 scale = Vector2( 3.21056, 1.61998 )
-process_parent = true
+physics_process_parent = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/default = SubResource( 2 )

@@ -182,17 +182,17 @@ func _shoot_cone(num_bullets = 5, spread = 50):
 func rotation_to_direction(rotation_degrees: float, reverse_direction: bool = true) -> Vector2:
 	# Convert rotation from degrees to radians (skip if already in radians)
 	var rotation_radians = deg2rad(rotation_degrees)
-	
+
 	# Calculate direction vector
 	var direction = Vector2(cos(rotation_radians), sin(rotation_radians))
-	
+
 	if reverse_direction == true:
 		direction = -direction
-	
+
 	# # Normalize the vector (optional, but ensures length = 1)
 	# Doing this in bullet_manager
 	# direction = direction.normalized()
-	
+
 	return direction
 
 
