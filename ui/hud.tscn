@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://ui/empty_heart.png" type="Texture" id=1]
 [ext_resource path="res://ui/hud.gd" type="Script" id=2]
@@ -6,6 +6,36 @@
 [ext_resource path="res://ui/button_normal.tres" type="StyleBox" id=4]
 [ext_resource path="res://ui/button_pressed.tres" type="StyleBox" id=5]
 [ext_resource path="res://ui/button_focused.tres" type="StyleBox" id=6]
+[ext_resource path="res://Tinos-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.878431, 0.392157, 0.996078, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.568627, 0.941176, 1, 1 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color( 0.170212, 0.35445, 0.378906, 0.6 )
+shadow_size = 10
+shadow_offset = Vector2( 5, 5 )
+
+[sub_resource type="Theme" id=6]
+Label/colors/font_color = Color( 0, 0.6, 0.815686, 1 )
+Label/fonts/font = SubResource( 7 )
+Label/styles/normal = SubResource( 5 )
 
 [sub_resource type="Theme" id=4]
 
@@ -53,6 +83,23 @@ pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+
+[node name="EndText" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -251.0
+margin_top = -42.5
+margin_right = 251.0
+margin_bottom = 42.5
+rect_scale = Vector2( 1, 1.06242 )
+theme = SubResource( 6 )
+text = "C o n g r a t u l a t i o n s ! 
+The world is now safe from that thing."
+align = 1
+valign = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 16.0

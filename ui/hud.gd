@@ -7,6 +7,7 @@ onready var time_label : Label = $ColorRect/CenterContainer/VBoxContainer/TimeLa
 onready var heart1: AnimatedSprite = $ColorRect2/CenterContainer/HBoxContainer/Control3/Heart1
 onready var heart2: AnimatedSprite = $ColorRect2/CenterContainer/HBoxContainer/Control2/Heart2
 onready var heart3: AnimatedSprite = $ColorRect2/CenterContainer/HBoxContainer/Control/Heart3
+onready var end_text: Label = $EndText
 var score : int = 0
 var time : float = 0.0
 # Find a better way to do this. Setting it to 3 here and in player feels wrong
@@ -70,6 +71,9 @@ func _update_boss_healthbar():
 	if boss_health_bar.value == 0:
 		var tween = create_tween()
 		tween.tween_property(boss_health_bar, "modulate:a", 0, 1)
+		end_text.visible = true
+		yield(get_tree().create_timer(10), "timeout")
+		get_tree().quit()
 
 
 func _on_Start_Button_pressed():

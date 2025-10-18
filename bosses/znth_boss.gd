@@ -57,7 +57,7 @@ func _spawn_lasers(amount: int):
 func _on_VisibilityEnabler2D_screen_entered():
 	_laser_interval()
 	GameStateManager.boss_on_screen()
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(3), "timeout")
 	can_be_damaged = true
 
 
