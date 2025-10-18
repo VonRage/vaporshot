@@ -55,15 +55,15 @@ func _move_toward_player_and_leave(delta):
 
 # Shot pattern functions
 
-func _shoot_burst(num_bullets: int = 3, distancing: float = 0.15, shoot_dir: Vector2 = Vector2(-1, 0), rotation: float= 0):
+func _shoot_burst(num_bullets: int = 3, distancing: float = 0.15, shoot_dir: float = 0):
+	var direction = rotation_to_direction(shoot_dir)
 	for i in num_bullets:
 		BulletManager.spawn_bullet(
 			global_position,
-			shoot_dir,
+			direction,
 			"enemy",
 			bullet_speed,
-			5.0,
-			rotation
+			5.0
 		)
 		yield(get_tree().create_timer(distancing), "timeout")
 
@@ -177,6 +177,23 @@ func _shoot_cone(num_bullets = 5, spread = 50):
 			bullet_speed,
 			5.0
 		)
+
+
+func rotation_to_direction(rotation_degrees: float, reverse_direction: bool = true) -> Vector2:
+	# Convert rotation from degrees to radians (skip if already in radians)
+	var rotation_radians = deg2rad(rotation_degrees)
+	
+	# Calculate direction vector
+	var direction = Vector2(cos(rotation_radians), sin(rotation_radians))
+	
+	if reverse_direction == true:
+		direction = -direction
+	
+	# # Normalize the vector (optional, but ensures length = 1)
+	# Doing this in bullet_manager
+	# direction = direction.normalized()
+	
+	return direction
 
 
 func _get_player():
